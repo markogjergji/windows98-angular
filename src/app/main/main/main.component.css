@@ -1,0 +1,8 @@
+.loading-spinner{
+    width: 33px;
+    position: absolute;
+    z-index: 900000;
+}
+.loading-spinner > img{
+    width: inherit;
+}

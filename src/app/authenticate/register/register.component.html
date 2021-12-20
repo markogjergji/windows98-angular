@@ -1,0 +1,86 @@
+<div class="con">  
+    <div class="window">
+        <div class="title-bar">
+            <div class="title-bar-text">Register</div>
+            <div class="title-bar-controls"></div>
+        </div>
+        <form (ngSubmit)="register()" novalidate [formGroup]="myform">
+            <div class="form-con">
+
+            
+            <div class="image">
+                <img src="../../../assets/images/User's documents.ico" alt="">
+            </div>
+            <div class="center">
+
+            
+            <div class="formGroup fields">
+                <label for="firstName">First Name</label>
+                <input type="text" class="formControl" formControlName="firstName" placeholder="First Name" required>
+            </div>
+            <div class="formGroup fields">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="formControl" formControlName="lastName" placeholder="Last Name" required>
+            </div>
+            <div class="formGroup fields">
+                <label for="username">Username</label>
+                <input type="text" class="formControl" formControlName="username" placeholder="Username" required>
+            </div>
+            <div class="formGroup fields">
+                <label for="email">Email</label>
+                <input type="email" class="formControl" formControlName="email" placeholder="Email Address" required>
+            </div>
+    
+            <div class="formGroup fields">
+                <label for="password">Password</label>
+                <input type="password" class="formControl" formControlName="password" placeholder="Password" required>
+            </div>
+
+            <div class="formGroup fields">
+                <label>Register As System Admin</label>
+                <input type="checkbox" class="formControl" formControlName="enterKey">
+            </div>
+
+            <div *ngIf="enterKey.value" class="formGroup fields">
+                <label for="sysAdmin">Product Key</label>
+                <input type="text" class="formControl" [ngStyle]="{'color': sysAdmin.errors?.productCodeExists ? 'red' : 'green'}" formControlName="sysAdmin" placeholder="XXXX-XXXX-XXXX">
+            </div>
+    
+            <div class="formGroup">
+
+                <button type="submit" class="btn btnPrimary" [disabled]="!firstName.valid || !lastName.valid || !email.valid || !password.valid || !username.valid">Register</button>
+            </div>
+            </div>
+        </div>
+        </form>
+
+<div class="bottom-con">
+    <div class="links">
+        <div class="redirectToLogin">
+            <span>Already have an account?</span> <a class="redirect" routerLink="/login">Login</a>
+        </div> 
+    </div>
+    <div class="error-container">
+        <div class="errors" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+            <div>First Name is required</div>
+        </div>
+        <div class="errors" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+            <div>Last Name is required</div>
+        </div>
+        <div class="errors" *ngIf="username.errors && (username.dirty || username.touched)">
+            <div>Username is required</div>
+        </div>
+        <div class="errors" *ngIf="email.errors && (email.dirty || email.touched)">
+            <div>Email is required</div>
+        </div>
+        <div class="errors" *ngIf="password.errors && (password.dirty || password.touched)">
+            <div>Password is required</div>
+        </div>
+        <div class="errors" *ngIf="sysAdmin.errors?.productCodeExists">
+            Product Key is not correct.
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+  

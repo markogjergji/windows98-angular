@@ -1,0 +1,15 @@
+body{
+    background-color: black;
+    font-family: "IBM";
+}
+#bios-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    padding-top: 50px;
+}
+div{
+    color:rgb(179, 177, 177);
+    font-family: "IBM";
+    font-size: 30px;
+}

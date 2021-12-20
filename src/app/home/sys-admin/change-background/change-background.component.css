@@ -1,0 +1,46 @@
+.con{
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    width: 99%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+    background-color: white;
+    margin: auto;
+}
+
+.images-con{
+    background-color: silver;
+    width: 99%;
+    height: 99%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.images{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+.image{
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+.image > img {
+    border: 5px solid black;
+    width: 60%;
+}
+.image > p{
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 20px;
+}
+.button-con{
+    width: 20%;
+}

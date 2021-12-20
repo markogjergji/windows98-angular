@@ -1,0 +1,31 @@
+<app-window [title]="'Videocalling'"  [unique_key]="unique_key" [focused]="focused"  [min]="minimized" [endCall]="endedCall">
+
+    <div class="con" id="browser-con">
+
+        <div class="videos">
+
+            <div>
+                <video id="webcamVideo" #webcamVideo autoplay muted></video>
+            </div>
+
+            <div>
+                <video id="remoteVideo" #remoteVideo autoplay></video>
+            </div>
+            
+        </div>
+
+        <div class="button-con interactiveElement">
+            
+            <button id="answerButton" *ngIf="answerButtonActivated"  class="interactiveElement" #answerButton (click)="setupAnswer()">Answer</button>
+            <button class="hangupButton interactiveElement" *ngIf="denyButtonActivated"  #hangupButton (click)="endCall()">Deny call</button>
+            <button class="hangupButton interactiveElement" *ngIf="endButtonActivated"  #hangupButton (click)="endCall()">End call</button>
+        </div>
+        
+    </div>
+</app-window>
+
+    
+    
+
+
+

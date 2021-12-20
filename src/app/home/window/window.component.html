@@ -1,0 +1,22 @@
+
+<div #browserWindow [style.top.px]="top" [style.left.px]="left" [ngClass]="{'focused' : focused , 'min' : minimized , 'max' : maximized}" class="window app-window"  cdkDragBoundary=".drag-boundry" cdkDrag>
+
+    <div #box class="resizable-draggable" [style.width.px]="width"  [style.height.px]="height" ></div>
+    <div class="resize-action" (mousedown)="setStatus($event, 1)" (window:mouseup)="setStatus($event, 0)"></div>
+
+    <div class="title-bar" id="browser-title" cdkDragHandle>
+        <div class="title-bar-text">{{title}}</div>
+        <div class="title-bar-controls">
+            <button aria-label="Minimize" (click)="minimize()"></button>
+
+            <button aria-label="Maximize" *ngIf="!maximized" (click)="maximize()"></button>
+            <button aria-label="Restore" *ngIf="maximized" (click)="restore()"></button>
+
+            <button aria-label="Close" (click)="closeWindow()"></button>
+        </div>
+    </div>
+
+    <div class="opened-app">
+        <ng-content></ng-content>
+    </div>
+</div>

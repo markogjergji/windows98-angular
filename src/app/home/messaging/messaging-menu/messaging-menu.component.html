@@ -1,0 +1,104 @@
+<app-window [title]="'Messaging Service'"  [unique_key]="unique_key" [focused]="focused"  [min]="minimized">
+
+    <div class="messaging-con">
+        <div class="menu-con">
+            <div class="background-con">
+                
+                <div class="menu-nav-con">
+
+                    <input type="text" value="" placeholder="Search Users..." *ngIf="!openFriendRequests" name="searchValue" [(ngModel)]="searchValue" />
+            
+                    <div (click)="requestsTab()" class="interactiveElement menu-nav" *ngIf="!openFriendRequests">
+                        <img src="../../../../assets/images/User's documents.ico" alt="">
+                        <div>
+                            Friend Requests
+                        </div>
+                    </div>
+                    <div (click)="requestsTab()" class="interactiveElement menu-nav" *ngIf="openFriendRequests">
+                        <img src="../../../../assets/images/Chat.ico" alt="">
+                        <div>
+                            Main Menu
+                        </div>
+                    </div>
+
+                </div>
+                <div class="users" *ngIf="!searchValue && !openFriendRequests">
+                    <div class="menu-title">
+                        Online
+                    </div>
+                    <div class="users-con" *ngFor="let user of friends  | onlineFriendsFilter:online">
+                        <div class="user-con interactiveElement" (click)="textFriend(user.username,user.id)">
+                            <img src="../../../../assets/images/profile-2.png" alt="">
+                            <div class="user-details">
+                                <div class="user-username">{{user.username}}</div>
+                                <div class="user-email">{{user.email}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-title">
+                        Offline
+                    </div>
+                    <div class="users-con" *ngFor="let user of friends | onlineFriendsFilter:offline">
+                        <div class="user-con interactiveElement" (click)="textFriend(user.username,user.id)">
+                            <img src="../../../../assets/images/profile-1.png" alt="">
+                            <div class="user-details">
+                                <div class="user-username">{{user.username}}</div>
+                                <div class="user-email">{{user.email}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="users" *ngIf="searchValue && !openFriendRequests">
+                    <div class="search-users-con"  *ngFor="let user of users | searchFilter:searchValue:loggedUserId">
+                        <div class="user-details">
+                            <div class="user-username">{{user.username}}</div>
+                            <div class="user-email">{{user.email}}</div>
+                        </div>
+                        
+                        <button *ngIf=user.friendRequestSent disabled class="add-friend-button interactiveElement">Friend Request Sent</button>
+
+                        <button *ngIf=!user.friendRequestSent (click)="addFriend(user.id)" class="add-friend-button interactiveElement">Add Friend</button>
+                        
+                    </div>
+                </div>
+                <div class="users" *ngIf="!searchValue && openFriendRequests">
+                    <div *ngFor="let user of friendRequest">
+                        <div class="user-details">
+                            <div class="user-username">{{user.username}}</div>
+                            <div class="user-email">{{user.email}}</div>
+                        </div>
+                           <button (click)="acceptFriend(user.id)" class="add-friend-button interactiveElement">Accept Friend</button>
+                        
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+            <div class="banner">
+                <img src="../../../../assets/images/messenger-service-logo.jpg" alt="">
+            </div>
+            <div class="status">
+                <img src="../../../../assets/images/profile-2.png" alt="">
+                <div>
+                    {{username}}
+                </div>
+            </div>
+        </div>
+        <div class="text-video-con" >
+            <div id="text-your-friends" *ngIf="!text">
+                Text your friends!
+            </div >
+            <app-messaging-text *ngIf="text" [ngStyle]='{"width":"100%" , "height":"100%" ,"display": "flex", "flex-direction": "column", "justify-content": "flex-start", "align-items": "center"}' [friendUsername]="friendUsername" [friendId]="friendId"></app-messaging-text>
+        </div>
+
+        
+        <div *ngIf="video">
+            <app-videocalling></app-videocalling>
+        </div>
+
+    </div>
+
+</app-window>

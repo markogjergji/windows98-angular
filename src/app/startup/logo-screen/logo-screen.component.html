@@ -1,0 +1,25 @@
+<div id="logo-container"  >
+    
+    <img *ngIf="restart || logout" src="../../../assets/images/logo2.png" />
+    <img *ngIf="!restart && !logout" [@enterAnimation]="start ? 'open' : 'closed'" src="../../../assets/images/logo2.png" />
+    <div [@enterAnimation]="start ? 'open' : 'closed'" *ngIf="restart" class="action">Restarting...</div>
+    <div [@enterAnimation]="start ? 'open' : 'closed'" *ngIf="logout" class="action">Logging out...</div>
+    <div id="loading-bar" style="opacity:0" >
+        <div class="sub-block" ></div>
+        <div class="sub-block" ></div>
+        <div class="sub-block" ></div>
+        <div class="sub-block" ></div>
+        <div class="sub-block" style="opacity:0"></div>
+        <div class="sub-block" style="opacity:0"></div>
+        <div class="sub-block" style="opacity:0"></div>
+        <div class="sub-block" style="opacity:0"></div>
+        <div class="sub-block" style="opacity:0"></div>
+        <div class="sub-block" style="opacity:0"></div>
+        <div class="sub-block" style="opacity:0"></div>
+        <div class="sub-block" style="opacity:0"></div>
+        <div class="sub-block" style="opacity:0"></div>
+        <div class="sub-block" style="opacity:0"></div>
+    </div>
+</div>
+
+

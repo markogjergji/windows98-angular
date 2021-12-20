@@ -1,0 +1,59 @@
+
+
+<app-window [title]="'Browser'" [unique_key]="unique_key" [focused]="focused"  [min]="minimized">
+    
+    <div class="con" id="browser-con">
+
+        <div class="navigate">
+
+            <div class="nav-top">
+                <div class="left-styling-element"></div>
+            </div>
+           
+            <div class="nav-links">
+                <div class="left-styling-element"></div>
+                <a (click)="goBack()">
+                    <img style="width: 21px" src="../../../../assets/images/back-disabled.png" alt="">
+                    <p class="nav-link-title">Back</p>
+                </a>
+                <a (click)="refresh()">
+                    <img src="../../../../assets/images/refresh.png" alt="">
+                    <p class="nav-link-title">Refresh</p>
+                </a >
+                <a (click)="home()">
+                    <img src="../../../../assets/images/home.png" alt="">
+                    <p class="nav-link-title">Home</p>
+                </a>
+            </div>
+
+            <div class="address-bar">
+                <div class="left-styling-element"></div>
+                <div class="address">
+                    Address:
+                </div>
+                <div class="bar">
+                    <input type="text" [(ngModel)]="urlBar" value="" />
+                </div>
+            </div>
+        </div>
+       
+        <div class="interactiveElement"  *ngIf="!submitted" class="browser-results" id="frame">
+            <!-- <input type="text" name="" id="" placeholder="Search" [(ngModel)]="query" />
+            <button class="interactiveElement" (click)="search()">Search!</button> -->
+            <div #searchLogo id="google-logo">
+                <img src="../../../../assets/images/google-logo.jpg" alt="">
+            </div>
+            <div #searchEngine id="searchEngine"> 
+                <div class="gcse-search"></div>
+            </div>
+            
+            <iframe src="" #frame></iframe>
+        </div>
+
+    </div>
+
+</app-window>
+<div id="rightClick" #rightClick>Save Image</div>
+    
+
+

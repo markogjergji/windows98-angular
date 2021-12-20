@@ -1,0 +1,35 @@
+<app-window [title]="'Change Background'" [unique_key]="unique_key" [focused]="focused"  [min]="minimized">
+
+
+    <div class="con">
+
+        <div class="images-con">
+
+            <div class="images">
+                <a class="image" >
+                    <img [ngStyle]="{'width':'60%'}" src="../../../../assets/images/clouds.jpg" alt="">
+                    <p class="image-name" >Default Background</p>
+                </a>
+
+                <div class="button-con">
+                    <button (click)="setBackground('default')">Set as background</button>
+                </div>
+            </div>
+
+            <div class="images" *ngFor="let image of images; let i = index ">
+                <a class="image" >
+                    <img src="{{image.image}}" alt="">
+                    <p class="image-name" >{{(image.name | slice:0:15) + (image.name.length > 20 ? '...' : '')}}</p>
+                </a>
+
+                <div class="button-con">
+                    <button (click)="setBackground(image.id)">Set as background</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+
+</app-window>

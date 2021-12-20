@@ -1,0 +1,41 @@
+<app-window [title]="'Paint'"  [unique_key]="unique_key" [focused]="focused"  [min]="minimized">
+    
+    <div class="con">
+        <div  id="paintCon">
+            <div class="app-nav">
+
+                <div class="nav-top">
+                    <div class="left-styling-element"></div>
+                </div>
+               
+                <div class="nav-links">
+                    <div class="left-styling-element"></div>
+                    <a (click)="undo()">
+                        <img style="width: 21px" src="../../../../assets/images/undo-active.png" alt="">
+                        <p class="nav-link-title">Undo</p>
+                    </a>
+                    <a (click)="save()">
+                        <img src="../../../../assets/images/save.png" alt="">
+                        <p class="nav-link-title">Save</p>
+                    </a >
+                    
+                </div>
+    
+            </div>
+            <div class="toolbox-canvas">
+                <app-toolbox [canvas]="paintCon"></app-toolbox>
+                <div class="canvasCon">
+                    <div #paintCon class="canvas">
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="palette">
+                <app-palette></app-palette>
+            </div>
+        </div>
+
+    </div>
+   
+</app-window>

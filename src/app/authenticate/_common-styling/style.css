@@ -1,0 +1,51 @@
+.con{
+    background-color: var(--background-teal);
+    width: 100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.window{
+    width: 30vw;
+    
+}
+.center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.fields{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.image{
+    width: 60%;
+}
+.image > img {
+    width: 35%;
+}
+.form-con{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.bottom-con{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.errors{
+    color:red;
+}
+button{
+    margin-top: 15px;
+}

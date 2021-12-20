@@ -1,0 +1,147 @@
+<div class="drag-boundry">  
+    <div #con class="con">
+        <div class="app-container">
+        
+            <div class="app">
+                <a id="browser" class="apps"  (click)="focusAppIcon(0)" (dblclick)="openBrowser()">
+                    <img src="../../../assets/images/Sync Earth.ico" alt="" [ngClass]="{'appIconSelected' : selectedApp[0]}">
+                    <p [ngClass]="{'appTextSelected' : selectedApp[0]}" >Browser</p>
+                </a>
+            </div>
+            <div class="app">
+                <a id="paint" class="apps" (click)="focusAppIcon(1)" (dblclick)="openPaint()">
+                    <img src="../../../assets/images/Paint.ico" alt="" [ngClass]="{'appIconSelected' : selectedApp[1]}">
+                    <p [ngClass]="{'appTextSelected' : selectedApp[1]}">Paint</p>
+                </a>
+            </div>
+        
+    
+            <div class="app">
+                <a id="messsage" class="apps" (click)="focusAppIcon(2)" (dblclick)="openMessagingApp()">
+                    <img src="../../../assets/images/Clipboard with phone.ico" alt="" [ngClass]="{'appIconSelected' : selectedApp[2]}">
+                    <p [ngClass]="{'appTextSelected' : selectedApp[2]}">Messaging App</p>
+                </a>
+            </div>
+
+            <div *ngIf="sysadmin" class="app">
+                <a id="messsage" class="apps" (click)="focusAppIcon(3)" (dblclick)="openScreensaver()">
+                    <img src="../../../assets/images/Screensaver.ico" alt="" [ngClass]="{'appIconSelected' : selectedApp[3]}">
+                    <p [ngClass]="{'appTextSelected' : selectedApp[3]}">Change Screensaver</p>
+                </a>
+            </div>
+
+            <div *ngIf="sysadmin" class="app">
+                <a id="messsage" class="apps" (click)="focusAppIcon(4)" (dblclick)="openBackgroundApp()">
+                    <img src="../../../assets/images/Customize computer.ico" alt="" [ngClass]="{'appIconSelected' : selectedApp[4]}">
+                    <p [ngClass]="{'appTextSelected' : selectedApp[4]}">Change Background</p>
+                </a>
+            </div>
+
+
+            <div class="app" *ngFor="let image of images; let i = index ">
+                <a class="apps" (click)="focusAppIcon(i+padding)" (dblclick)="openImage(image.id)">
+                    <img [attr.image-id]="image.id" class="addedImg" src="{{image.image}}" [ngClass]="{'appIconSelected' : selectedApp[i+padding]}" alt="">
+                    <p [attr.image-id]="image.id" class="addedImg" [ngClass]="{'appTextSelected' : selectedApp[i+padding]}" >{{(image.name | slice:0:15) + (image.name.length > 20 ? '...' : '')}}</p>
+                </a>
+            </div>
+        
+        </div>
+
+        <div class="opened-apps">
+            <div #homeApps ></div>
+        </div> 
+        
+        <div #toolbar class="toolbar window" >
+            
+            <div id="left">
+                <button (click)="openStartMenu()" id="start">
+                    <img src="../../../assets/images/Windows logo (without text).ico" alt="">
+                    <p>Start</p>
+                </button>
+                <div id="toolbar-apps">
+                    <div #toolbarApps></div>
+                </div>
+            </div>
+
+            <div id="right">
+                <div>10%</div>
+                <img src="../../../assets/images/Battery.ico" alt="">
+                <img src="../../../assets/images/Volume.ico" alt="">
+
+                <div id="user"></div>
+                <div id="time">
+
+                    <div id="date">{{clock | date:'EE:MMM:d:yyyy'}}</div>
+                    <div id="clock" >{{clock | date:'HH:mm:ss'}}</div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="startMenuOpened" id="startMenu" #startMenu>
+    <div id="start-menu-con">
+        <img src="../../../assets/images/windows98-start-button.png" alt="">
+        <div id="start-content">
+            <div id="start-welcome">
+                <img src="../../../assets/images/logo-without-text.png" alt="">
+                <div id="start-welcome-text">Welcome</div>
+                <div id="username-con">
+                    <div id="start-username">{{username}}</div>
+                    <img src="../../../assets/images/Plush bear.ico" alt="">
+                </div>
+               
+                
+            </div>
+            <div id="start-actions" >
+                <div *ngIf="settings" [routerLink]="['/home/sysadmin']">
+                    <img src="../../../assets/images/Settings.ico" alt="">
+                    <div>
+                        Settings
+                    </div>
+                </div>
+                <div id="log-out" [routerLink]="['/home/logout']">
+                    <img src="../../../assets/images/Windows Key (32x32).ico" alt="">
+                    <div>
+                        Log Out 
+                    </div>
+                   
+                </div>
+                <div id="restart" [routerLink]="['/home/restart']">
+                    <img src="../../../assets/images/Turn Off Computer (full).ico" alt="">
+                    <div>
+                        Restart
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="rightClick" #rightClick>Delete Image</div>
+
+
+
+<video *ngIf="screensaverActive.logos" autoplay muted loop>
+    <source src="../../../assets/screensavers/logos/logos.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video *ngIf="screensaverActive.pipes1" autoplay muted>
+    <source src="../../../assets/screensavers/pipes/pipes-1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video *ngIf="screensaverActive.pipes2" autoplay muted>
+    <source src="../../../assets/screensavers/pipes/pipes-2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video *ngIf="screensaverActive.pipes3" autoplay muted>
+    <source src="../../../assets/screensavers/pipes/pipes-3.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video *ngIf="screensaverActive.pipes4" autoplay muted>
+    <source src="../../../assets/screensavers/pipes/pipes-4.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>

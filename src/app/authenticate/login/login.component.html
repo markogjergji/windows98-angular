@@ -1,0 +1,59 @@
+<div class="con">
+
+    <div class="window">
+        <div class="title-bar">
+            <div class="title-bar-text">Login</div>
+            <div class="title-bar-controls"></div>
+        </div>
+        
+        <form (ngSubmit)="login()" novalidate [formGroup]="myform">
+            <div class="form-con">
+
+            
+            <div class="image">
+                <img src="../../../assets/images/Windows Key (32x32).ico" alt="">
+            </div>
+            <div class="center">
+                <div class="formGroup fields">
+                    <label for="email">Email</label>
+                    <input type="text" class="formControl" formControlName="email" placeholder="Email" required>
+                    
+                </div>
+
+                <div class="formGroup fields">
+                    <label for="password">Password</label>
+                    <input type="password" class="formControl" formControlName="password" placeholder="Password" required>
+                    
+                </div>
+
+                <div class="formGroup">
+                    <button type="submit" class="btn btnPrimary"  [disabled]="!myform.valid">Login</button>
+                </div>
+            </div>
+        </div>
+        </form>
+
+        <div class="bottom-con">
+            <div class="links">
+        
+                <div class="redirectToLogin">
+                    <span>Don't have an account?</span><a class="redirect" routerLink="/register"> Sign Up</a>
+                </div>
+            </div>
+            <div class="error-container">
+                <div class="errors" *ngIf="email.errors && (email.dirty || email.touched)">
+                    <div>Email is required</div>
+                </div>
+                <div class="errors" *ngIf="password.errors && (password.dirty || password.touched)">
+                    <div>Password is required</div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+
+        
+</div>
+  

@@ -1,0 +1,55 @@
+<app-window [title]="'Change Screensaver'" [unique_key]="unique_key" [focused]="focused"  [min]="minimized">
+    
+    <div class="con">
+        <div class="content">
+            <div class="screensaver-content">
+                <div class="screensavers">
+                    <div class="video">
+                        <video autoplay muted loop>
+                            <source src="../.../../../../../assets/screensavers/pipes/pipes-1.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video>
+    
+                        <label class="title" for="pipes">
+                            Pipes Screensaver
+                        </label>
+                        <input type="radio" name="screensavers" [(ngModel)]="selectedScreensaver" value="pipes" />
+                    </div>
+                </div>
+        
+                <div class="screensavers">
+                    <div class="video">
+                        <video autoplay muted loop>
+                            <source src="../.../../../../../assets/screensavers/logos/logos.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video>
+    
+                        <label class="title" for="logos">
+                            Logo Screensaver
+                        </label>
+                        <input type="radio" name="screensavers" [(ngModel)]="selectedScreensaver" value="logos" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timer">
+                <div>
+                    <div>Select Time</div>
+                    <select [(ngModel)]="selectedTime">
+                        
+                        <option *ngFor="let t of time" [ngValue]="t">{{t}}</option>
+                    </select>
+                </div>
+                <div>
+                    <button (click)="removeScreensaver()">Remove Screensaver</button>
+                    <button (click)="setScreensaver()">Set Screensaver</button>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        
+    </div>
+
+</app-window>

@@ -1,0 +1,68 @@
+
+
+<div class="menu-con">
+    <div class="background-con">
+        
+        <div class="menu-nav-con">
+    
+            <div>{{friendUsername}}</div>
+            <div (click)="call()" class="interactiveElement call-button">
+
+                <img *ngIf="callCondition" src="../../../../assets/images/Handset.ico" alt="">
+                <div *ngIf="!callCondition">User is in a call</div>
+            </div>
+            
+        </div>
+        <div class="users" #users>
+            <div class="single-message-con" *ngFor="let text of textMessages">
+
+                <div>
+
+                    <div *ngIf="text.sender===loggedUsername;else otherUser" class="sender">
+                        You said:
+                    </div>
+
+                    <ng-template #otherUser>
+                        <div class="sender">
+                            {{text.sender}} said:
+                        </div>
+                    </ng-template>
+
+                    <div class="message-text">
+                        {{text.text}}
+                    </div>  
+                                     
+                </div>
+                <div>
+                    
+                    <div class="message-date">
+                        <div class="hour">
+                            {{text.date | date:'h:mm:ss a'}}
+                        </div>
+                        <div class="date">
+                            {{text.date | date:'yyyy/MM/dd a'}}
+                        </div>
+                    </div>
+                    
+                </div>
+                   
+            </div>
+            <div class="newMessageAtBottom" #newMessageAtBottom></div>
+        </div>
+    </div>
+        
+</div>
+<div class="send-field">
+        
+    <textarea type="text" [(ngModel)]="textValue"></textarea>
+    <button (click)="sendText()" class="interactiveElement">Send</button>
+</div>
+
+<div class="status">
+    <div></div>
+</div>
+
+<div *ngIf="openVideoApp">
+    <app-videocalling></app-videocalling>
+</div>
+

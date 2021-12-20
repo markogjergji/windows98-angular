@@ -1,0 +1,8 @@
+input[type=checkbox]{
+    -webkit-appearance: auto !important;
+    /* margin: 0; */
+    /* background: 0; */
+    position: relative !important;
+    opacity: 1 !important;
+    margin: 3px 3px 0px 5px !important; 
+}

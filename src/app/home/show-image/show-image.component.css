@@ -1,0 +1,15 @@
+#img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95%;
+    overflow: auto;
+    width: 100%;
+    flex-direction: column;
+}
+#img > div{
+    font-size: 15px;
+}
+img{
+    width: auto;
+}

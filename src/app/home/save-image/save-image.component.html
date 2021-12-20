@@ -1,0 +1,13 @@
+<app-window [title]="'Save Image'"  [unique_key]="unique_key" [focused]="focused"  [min]="minimized">
+
+    <div class="con" id="browser-con">
+
+        <img src={{image}} alt="">
+        <input type="text" name="imageName" (input)="checkValid()" [(ngModel)]="imageName" />
+        <button [disabled]="!valid" (click)="save()">Save</button>
+        
+    </div>
+</app-window>
+
+    
+    

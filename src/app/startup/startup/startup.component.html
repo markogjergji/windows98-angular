@@ -1,0 +1,4 @@
+
+<app-bios-screen *ngIf="!start" (start)="startup($event)"></app-bios-screen>
+
+<app-logo-screen *ngIf="start" [loginAsSysAdmin]="loginAsSysAdmin" [@enterAnimation]="start ? 'open' : 'closed'"></app-logo-screen>

@@ -1,0 +1,84 @@
+<div class="toolbox-con">
+
+    <div class="tools interactiveElement">
+
+        <div class="category">
+            <div #tool class="tool clickable" id="pencil-selected" tool-type="pencil"></div>
+            <div #tool class="tool clickable" id="spray" tool-type="spray"></div>
+        </div>
+        
+        <div class="category">
+            <div #tool class="tool" id="eraser" tool-type="eraser"></div>
+            <div #tool class="tool" id="polygon" tool-type="polygon"></div>
+        </div>
+
+        <div class="category">
+            <div #tool class="tool" id="rectangle" tool-type="rectangle"></div>
+            <div #tool class="tool" id="circle" tool-type="circle"></div>
+        </div>
+
+
+    </div>
+    <div class="size interactiveElement">
+
+        <div *ngIf="selectedTool.pencil" class="pencil-size size-con">
+            <div #size>
+                <div class="size-one-pen" tool-type="pencil" size="2"></div>
+            </div>
+            <div #size>
+                <div class="size-two-pen" tool-type="pencil" size="10"></div>
+            </div>
+            <div #size>
+                <div class="size-three-pen" tool-type="pencil" size="18"></div>
+            </div>
+        </div>
+
+        <div *ngIf="selectedTool.eraser" class="eraser-size size-con">
+            <div #size>
+                <div class="size-one-eraser" tool-type="eraser" size="2"></div>
+            </div>
+            <div #size>
+                <div class="size-two-eraser" tool-type="eraser" size="10"></div>
+            </div>
+            <div #size>
+                <div class="size-three-eraser" tool-type="eraser" size="25"></div>
+            </div>
+        </div>
+
+        <div *ngIf="selectedTool.spray" class="spray-size size-con">
+            <div #size>
+                <div class="size-one-spray" tool-type="spray" size="5"></div>
+            </div>
+            <div #size> 
+                <div class="size-two-spray" tool-type="spray" size="20"></div>
+            </div>
+            <div #size>
+                <div class="size-three-spray" tool-type="spray" size="40"></div>
+            </div>    
+        </div>
+
+        <div *ngIf="selectedTool.rectangle" class="rectangle-size size-con">
+            <div #size>
+                <div class="size-one-rectangle" tool-type="rectangle" size="20"></div>
+            </div>
+            <div #size>
+                <div class="size-two-rectangle" tool-type="rectangle" size="50"></div>
+            </div>
+            <div #size>
+                <div class="size-three-rectangle" tool-type="rectangle" size="80"></div>
+            </div> 
+        </div>
+
+        <div *ngIf="selectedTool.circle" class="circle-size size-con">
+            <div #size>
+                <div class="size-one-circle" tool-type="circle" size="20"></div>
+            </div>
+            <div #size>
+                <div class="size-two-circle" tool-type="circle" size="50"></div>
+            </div>
+            <div #size>
+                <div class="size-three-circle" tool-type="circle" size="80"></div>
+            </div>
+        </div>
+    </div>
+</div>
